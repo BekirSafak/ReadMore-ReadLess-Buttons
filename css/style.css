@@ -1,0 +1,135 @@
+/** Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #fcf0e5;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 1200px;
+}
+
+.container .card {
+  position: relative;
+  width: 300px;
+  background: #daccfd;
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+  margin: 30px 20px;
+  padding: 20px 10px;
+}
+
+.container .card::before {
+  /*? .card köşesindeki üçgen deseni için yazıldı. */
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 20px solid transparent;
+  border-top: 20px solid #963aff;
+  border-right: 20px solid #963aff;
+}
+
+.container .card.active::before {
+  border-top: 20px solid #fa55de;
+  border-right: 20px solid #fa55de;
+}
+
+.container .card .icon {
+  margin-bottom: 10px;
+}
+
+.container .card .icon img {
+  max-width: 90px;
+}
+
+.container .card .textContent {
+  position: relative;
+  height: 215px;
+  overflow: hidden;
+}
+
+.container .card.active .textContent {
+  height: auto;
+}
+
+.container .card .textContent::before {
+  /*? .card less haldeyken alt tarafındaki yazı geçişlerini transparan yaptık. */
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(transparent, #daccfd);
+}
+
+.container .card.active .textContent::before {
+  /*? .card more haldeyken alt tarafındaki yazı geçişlerinindeki transparan özellik .active olduğunda kaldırılıyor. */
+  display: none;
+}
+
+.container .card .textContent h3 {
+  color: #963aff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: .5rem;
+  margin-left: .5rem;
+  margin-right: .5rem;
+}
+
+.container .card .textContent p {
+  color: #ffedf9;
+  font-weight: 300;
+  margin-left: .5rem;
+  margin-right: .5rem;
+  text-align: justify;
+  text-indent: 1.2rem;
+  word-spacing: .5px;
+}
+
+.container .card .more {
+  position: relative;
+  padding: .5rem 1rem;
+  background: #963aff;
+  margin-top: 1rem;
+  display: inline-block;
+  cursor: pointer;
+  text-transform: uppercase;
+  color: #290058;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: .1rem;
+  font-size: .8rem;
+  transition: .2s all linear;
+}
+
+.container .card .more::before {
+  /*? Buttonların yazıları ekleniyor. */
+  content: 'Read More';
+}
+
+.container .card.active .more {
+  background: #fa55de;
+  color: #ffedf9;
+}
+
+.container .card.active .more::before {
+  /*? Buttonların yazıları ekleniyor. */
+  content: 'Read Less';
+}
